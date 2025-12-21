@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Claptrap.hpp                                       :+:      :+:    :+:   */
+/*   Scavtrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:42 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 00:44:49 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/12/22 00:46:24 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
+#include "Claptrap.hpp"
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-
-class Claptrap
+class ScavTrap : public Claptrap
 {
-protected:
-	std::string _name;
-	unsigned int _hitpoint;
-	unsigned int _energypoint;
-	unsigned int _attackdmg;
-
 public:
-	Claptrap();
-	Claptrap(std::string name);
-	Claptrap(const Claptrap &copy);
-	Claptrap &operator=(const Claptrap &copy);
-	~Claptrap();
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+    ScavTrap();
+    ScavTrap(std::string name);
+    ScavTrap(const ScavTrap &copy);
+    ScavTrap& operator=(const ScavTrap &copy);
+    ~ScavTrap();
+    
+    void attack(const std::string &target);
+    void guardGate();
 };
