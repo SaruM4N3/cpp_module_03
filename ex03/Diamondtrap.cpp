@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fragtrap.cpp                                       :+:      :+:    :+:   */
+/*   Diamondtrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,47 +13,40 @@
 #include "Fragtrap.hpp"
 #include "iostream"
 
-FragTrap::FragTrap() : Claptrap()
+DiamondTrap::DiamondTrap() : Claptrap()
 {
     this->_hitPoint = 100;
     this->_energyPoint = 100;
     this->_attackDmg = 30;
-    std::cout << CYAN << "FragTrap default constructor called"
+    std::cout << CYAN << "DiamondTrap default constructor called"
               << RESET << std::endl;
 };
 
-FragTrap::FragTrap(std::string name) : Claptrap(name)
+DiamondTrap::DiamondTrap(std::string name) : Claptrap(name)
 {
     this->_hitPoint = 100;
     this->_energyPoint = 100;
     this->_attackDmg = 30;
-    std::cout << CYAN << "FragTrap " << GREEN << this->_name
+    std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
               << CYAN << " parameterized constructor called" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &copy) : Claptrap(copy)
+DiamondTrap::DiamondTrap(const DiamondTrap &copy) : Claptrap(copy)
 {
-    std::cout << CYAN << "FragTrap " << GREEN << this->_name
+    std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
               << CYAN << " copy constructor called" << RESET << std::endl;
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &copy)
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &copy)
 {
     Claptrap::operator=(copy);
-    std::cout << CYAN << "FragTrap " << GREEN << this->_name
+    std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
               << CYAN << " copy assignment operator called" << RESET << std::endl;
     return *this;
 }
 
-FragTrap::~FragTrap()
+DiamondTrap::~DiamondTrap()
 {
-    std::cout << RED << " Destructor called on FragTrap "
+    std::cout << RED << " Destructor called on DiamondTrap "
               << GREEN << this->_name << RESET << std::endl;
-}
-
-void FragTrap::highFivesGuys(void)
-{
-      std::cout << BLUE << "FragTrap " << GREEN << this->_name
-              << BLUE << " is asking for a highfives" << RESET << std::endl;
-    return;
 }

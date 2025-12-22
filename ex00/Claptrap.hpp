@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:42 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 00:15:27 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/12/22 23:07:14 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Claptrap
 {
 private:
 	std::string _name;
-	unsigned int _hitpoint;
-	unsigned int _energypoint;
-	unsigned int _attackdmg;
+	unsigned int _hitPoint;
+	unsigned int _energyPoint;
+	unsigned int _attackDmg;
 
 public:
 	Claptrap();
