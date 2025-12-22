@@ -5,9 +5,9 @@ NORELINK = -MMD -MP
 RM = rm -rf
 
 BUILDDIR = obj
-SRCS = Claptrap.cpp\
- 	Scavtrap.cpp\
- 	Fragtrap.cpp\
+SRCS = ClapTrap.cpp\
+ 	ScavTrap.cpp\
+ 	FragTrap.cpp\
 	main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)

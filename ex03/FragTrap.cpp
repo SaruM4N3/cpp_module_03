@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fragtrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 23:07:14 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/12/22 23:37:08 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fragtrap.hpp"
+#include "FragTrap.hpp"
 #include "iostream"
 
-FragTrap::FragTrap() : Claptrap()
+FragTrap::FragTrap() : ClapTrap()
 {
     this->_hitPoint = 100;
     this->_energyPoint = 100;
@@ -22,7 +22,7 @@ FragTrap::FragTrap() : Claptrap()
               << RESET << std::endl;
 };
 
-FragTrap::FragTrap(std::string name) : Claptrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     this->_hitPoint = 100;
     this->_energyPoint = 100;
@@ -31,7 +31,7 @@ FragTrap::FragTrap(std::string name) : Claptrap(name)
               << CYAN << " parameterized constructor called" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &copy) : Claptrap(copy)
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
     std::cout << CYAN << "FragTrap " << GREEN << this->_name
               << CYAN << " copy constructor called" << RESET << std::endl;
@@ -39,7 +39,7 @@ FragTrap::FragTrap(const FragTrap &copy) : Claptrap(copy)
 
 FragTrap &FragTrap::operator=(const FragTrap &copy)
 {
-    Claptrap::operator=(copy);
+    ClapTrap::operator=(copy);
     std::cout << CYAN << "FragTrap " << GREEN << this->_name
               << CYAN << " copy assignment operator called" << RESET << std::endl;
     return *this;

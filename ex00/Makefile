@@ -1,11 +1,11 @@
-NAME = claptrap
+NAME = ClapTrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I .
 NORELINK = -MMD -MP
 RM = rm -rf
 
 BUILDDIR = obj
-SRCS = Claptrap.cpp\
+SRCS = ClapTrap.cpp\
 	main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)

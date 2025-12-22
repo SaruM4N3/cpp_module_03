@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Scavtrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 23:07:14 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/12/22 23:38:12 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Scavtrap.hpp"
+#include "ScavTrap.hpp"
 #include "iostream"
 
-ScavTrap::ScavTrap() : Claptrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
     this->_hitPoint = 100;
     this->_energyPoint = 50;
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap() : Claptrap()
               << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : Claptrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     this->_hitPoint = 100;
     this->_energyPoint = 50;
@@ -31,7 +31,7 @@ ScavTrap::ScavTrap(std::string name) : Claptrap(name)
               << CYAN << " parameterized constructor called" << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : Claptrap(copy)
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
     std::cout << CYAN << "ScavTrap " << GREEN << this->_name
               << CYAN << " copy constructor called" << RESET << std::endl;
@@ -39,7 +39,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : Claptrap(copy)
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 {
-    Claptrap::operator=(copy);
+    ClapTrap::operator=(copy);
     std::cout << CYAN << "ScavTrap " << GREEN << this->_name
               << CYAN << " copy assignment operator called" << RESET << std::endl;
     return *this;

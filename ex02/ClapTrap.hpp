@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:42 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 23:07:14 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/12/22 23:34:20 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define MAGENTA "\033[35m"
 #define CYAN    "\033[36m"
 
-class Claptrap
+class ClapTrap
 {
 protected:
 	std::string _name;
@@ -30,11 +30,11 @@ protected:
 	unsigned int _attackDmg;
 
 public:
-	Claptrap();
-	Claptrap(std::string name);
-	Claptrap(const Claptrap &copy);
-	Claptrap &operator=(const Claptrap &copy);
-	~Claptrap();
+	ClapTrap();
+	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap &copy);
+	ClapTrap &operator=(const ClapTrap &copy);
+	~ClapTrap();
 	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
