@@ -6,6 +6,7 @@ RM = rm -rf
 
 BUILDDIR = obj
 SRCS = Claptrap.cpp\
+ 	Scavtrap.cpp\
 	main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)
