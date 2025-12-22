@@ -1,4 +1,4 @@
-NAME = scavtrap
+NAME = fragtrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I .
 NORELINK = -MMD -MP
@@ -7,6 +7,7 @@ RM = rm -rf
 BUILDDIR = obj
 SRCS = Claptrap.cpp\
  	Scavtrap.cpp\
+ 	Fragtrap.cpp\
 	main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)
