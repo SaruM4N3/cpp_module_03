@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 23:50:00 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/23 00:14:02 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/12/23 00:19:46 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int main()
 
     std::cout << GREEN << "\n=== Test 3: ScavTrap Energy (50 energy) ===" << RESET << std::endl;
     ScavTrap energyScav("EnergyScav");
-    std::cout << "First 3 attacks:" << std::endl;
     std::cout << GREEN << "Silenting the 50 next attacks" << RESET << std::endl;
     std::streambuf *old = std::cout.rdbuf(0);
     for (int i = 0; i < 50; i++)
