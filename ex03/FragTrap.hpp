@@ -6,14 +6,14 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:42 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 23:36:47 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 20:06:49 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 public:
     FragTrap();
@@ -22,4 +22,6 @@ public:
     FragTrap& operator=(const FragTrap &copy);
     ~FragTrap();
     void highFivesGuys(void);
+    unsigned int getFragHitPoints() const;
+    unsigned int getFragAttackDmg() const;
 };

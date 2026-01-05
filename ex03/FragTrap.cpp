@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 23:37:08 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 20:07:50 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,14 @@ void FragTrap::highFivesGuys(void)
       std::cout << BLUE << "FragTrap " << GREEN << this->_name
               << BLUE << " is asking for a highfives" << RESET << std::endl;
     return;
+}
+
+unsigned int FragTrap::getFragHitPoints() const
+{
+    return this->_hitPoint;
+}
+
+unsigned int FragTrap::getFragAttackDmg() const
+{
+    return this->_attackDmg;
 }

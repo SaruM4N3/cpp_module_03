@@ -6,60 +6,99 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 23:50:00 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 23:36:47 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/05 19:11:24 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <iostream>
 
 int main()
 {
-    std::cout << GREEN << "\n========== FRAGTRAP TESTS ==========" << RESET << std::endl;
-
-    std::cout << GREEN << "\n=== Test 1: FragTrap Construction (notice chaining) ===" << RESET << std::endl;
-    FragTrap frag1("Destroyer");
-
-    std::cout << GREEN << "\n=== Test 2: FragTrap Attack (30 dmg!) ===" << RESET << std::endl;
-    frag1.attack("victim");
-    frag1.attack("another_victim");
-
-    std::cout << GREEN << "\n=== Test 3: High Fives Request ===" << RESET << std::endl;
-    frag1.highFivesGuys();
-
-    std::cout << GREEN << "\n=== Test 4: FragTrap Stats Test ===" << RESET << std::endl;
-    FragTrap statsTest("StatsTest");
-    std::cout << "Testing 100 HP:" << std::endl;
-    statsTest.takeDamage(50);
+    std::cout << GREEN << "\n========== DIAMONDTRAP TESTS ==========" << RESET << std::endl;
+    
+    std::cout << GREEN << "\n=== Test 1: DiamondTrap Construction (notice chaining order) ===" << RESET << std::endl;
+    std::cout << YELLOW << "Expected order: ClapTrap -> FragTrap -> ScavTrap -> DiamondTrap" << RESET << std::endl;
+    DiamondTrap diamond1("Hybrid");
+    
+    std::cout << GREEN << "\n=== Test 2: whoAmI() - Name Identity Test ===" << RESET << std::endl;
+    std::cout << YELLOW << "Should show: 'Hybrid' and 'Hybrid_clap_name'" << RESET << std::endl;
+    diamond1.whoAmI();
+    
+    std::cout << GREEN << "\n=== Test 3: Attack (should use ScavTrap's attack) ===" << RESET << std::endl;
+    std::cout << YELLOW << "Should say: 'ScavTrap <name> attacks...'" << RESET << std::endl;
+    diamond1.attack("enemy");
+    diamond1.attack("another_enemy");
+    
+    std::cout << GREEN << "\n=== Test 4: DiamondTrap Attributes Test ===" << RESET << std::endl;
+    std::cout << YELLOW << "HP: 100 (FragTrap), Energy: 50 (ScavTrap), Dmg: 30 (FragTrap)" << RESET << std::endl;
+    DiamondTrap statsTest("StatsTest");
+    statsTest.takeDamage(50);  // Should survive (100 HP)
     statsTest.beRepaired(20);
-    statsTest.takeDamage(70);
-    std::cout << "Testing 30 attack damage:" << std::endl;
-    statsTest.attack("dummy");
-
-    std::cout << GREEN << "\n=== Test 5: FragTrap Copy & Assignment ===" << RESET << std::endl;
-    FragTrap frag2(frag1);
-    frag2.highFivesGuys();
-    FragTrap frag3("TempFrag");
-    frag3 = frag1;
-    frag3.highFivesGuys();
-
-    std::cout << GREEN << "\n=== Test 6: FragTrap Death Test ===" << RESET << std::endl;
-    FragTrap deadFrag("DeadFrag");
-    deadFrag.takeDamage(100);
-    deadFrag.attack("ghost");
-    deadFrag.highFivesGuys();  // Can still high five when dead!
-
-    std::cout << GREEN << "\n=== Test 7: Destruction Order (reverse of construction) ===" << RESET << std::endl;
+    statsTest.takeDamage(70);  // Should die
+    statsTest.attack("ghost");  // Can't attack when dead
+    
+    std::cout << GREEN << "\n=== Test 5: Inherited Special Abilities ===" << RESET << std::endl;
+    DiamondTrap multiTalent("MultiTalent");
+    std::cout << CYAN << "Testing ScavTrap's guardGate():" << RESET << std::endl;
+    multiTalent.guardGate();
+    std::cout << CYAN << "Testing FragTrap's highFivesGuys():" << RESET << std::endl;
+    multiTalent.highFivesGuys();
+    std::cout << CYAN << "Testing DiamondTrap's whoAmI():" << RESET << std::endl;
+    multiTalent.whoAmI();
+    
+    std::cout << GREEN << "\n=== Test 6: Energy Depletion Test ===" << RESET << std::endl;
+    DiamondTrap energyTest("EnergyTest");
+    std::cout << YELLOW << "DiamondTrap has 50 energy points (from ScavTrap)" << RESET << std::endl;
+    for (int i = 0; i < 52; i++)
     {
-        FragTrap temp("Temporary");
+        std::cout << "Attack #" << i + 1 << ": ";
+        energyTest.attack("target");
+    }
+    
+    std::cout << GREEN << "\n=== Test 7: Copy Constructor Test ===" << RESET << std::endl;
+    std::cout << YELLOW << "Creating copy of 'Hybrid'" << RESET << std::endl;
+    DiamondTrap diamond2(diamond1);
+    diamond2.whoAmI();  // Should have same names
+    diamond2.attack("copyTarget");
+    
+    std::cout << GREEN << "\n=== Test 8: Assignment Operator Test ===" << RESET << std::endl;
+    DiamondTrap diamond3("Original");
+    diamond3.whoAmI();
+    std::cout << YELLOW << "Assigning 'Hybrid' to 'Original'" << RESET << std::endl;
+    diamond3 = diamond1;
+    diamond3.whoAmI();  // Should show new names
+    
+    std::cout << GREEN << "\n=== Test 9: Default Constructor ===" << RESET << std::endl;
+    DiamondTrap defaultDiamond;
+    defaultDiamond.whoAmI();
+    defaultDiamond.attack("test");
+    defaultDiamond.guardGate();
+    defaultDiamond.highFivesGuys();
+    
+    std::cout << GREEN << "\n=== Test 10: Destruction Order ===" << RESET << std::endl;
+    std::cout << YELLOW << "Expected order: ~DiamondTrap -> ~ScavTrap -> ~FragTrap -> ~ClapTrap" << RESET << std::endl;
+    {
+        DiamondTrap temp("Temporary");
         std::cout << MAGENTA << "Leaving scope - watch destruction order!" << RESET << std::endl;
     }
-
-    std::cout << GREEN << "\n=== Test 8: Default Constructor ===" << RESET << std::endl;
-    FragTrap defaultFrag;
-    defaultFrag.highFivesGuys();
-    defaultFrag.attack("test");
-
-    std::cout << GREEN << "\n=== Final Destructors ===" << RESET << std::endl;
+    
+    std::cout << GREEN << "\n=== Test 11: Multiple DiamondTraps ===" << RESET << std::endl;
+    DiamondTrap d1("Alpha");
+    DiamondTrap d2("Beta");
+    DiamondTrap d3("Gamma");
+    d1.whoAmI();
+    d2.whoAmI();
+    d3.whoAmI();
+    d1.attack("Beta");
+    d2.attack("Gamma");
+    d3.attack("Alpha");
+    
+    std::cout << GREEN << "\n=== Test 12: Name Shadowing Verification ===" << RESET << std::endl;
+    std::cout << YELLOW << "This verifies that DiamondTrap._name and ClapTrap._name are different" << RESET << std::endl;
+    DiamondTrap shadowTest("Shadow");
+    shadowTest.whoAmI();  // Should show "Shadow" and "Shadow_clap_name"
+    
+    std::cout << GREEN << "\n=== Final Destructors (main scope cleanup) ===" << RESET << std::endl;
     return 0;
 }

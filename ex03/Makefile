@@ -8,6 +8,7 @@ BUILDDIR = obj
 SRCS = ClapTrap.cpp\
  	ScavTrap.cpp\
  	FragTrap.cpp\
+ 	DiamondTrap.cpp\
 	main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)
