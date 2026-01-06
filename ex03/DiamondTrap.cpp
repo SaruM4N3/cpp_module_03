@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2026/01/05 20:18:26 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/06 18:33:07 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name"), FragTrap(), ScavTrap(), _name("default")
 {
-    this->_hitPoint = FragTrap::getFragHitPoints();
-    this->_energyPoint = ScavTrap::getScavEnergyPoints();
-    this->_attackDmg = FragTrap::getFragAttackDmg();
+    this->_hitPoint = 100;
+    this->_energyPoint = 50;
+    this->_attackDmg = 30;
     std::cout << CYAN << "DiamondTrap default constructor called"
               << RESET << std::endl;
 };
 
 DiamondTrap::DiamondTrap(std::string const &name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _name(name)
 {
-    this->_hitPoint = FragTrap::getFragHitPoints();
-    this->_energyPoint = ScavTrap::getScavEnergyPoints();
-    this->_attackDmg = FragTrap::getFragAttackDmg();
+    this->_hitPoint = 100;
+    this->_energyPoint = 50;
+    this->_attackDmg = 30;
     std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
               << CYAN << " parameterized constructor called" << RESET << std::endl;
 }

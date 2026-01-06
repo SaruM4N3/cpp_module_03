@@ -1,4 +1,4 @@
-NAME = fragtrap
+NAME = diamondtrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I .
 NORELINK = -MMD -MP
