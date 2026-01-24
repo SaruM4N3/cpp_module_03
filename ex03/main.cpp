@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 23:50:00 by zsonie            #+#    #+#             */
-/*   Updated: 2026/01/24 19:49:17 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 20:32:25 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int main()
     std::cout << GREEN << "\n=== Test 7: Copy Constructor Test ===" << RESET << std::endl;
     std::cout << YELLOW << "Creating copy of 'Hybrid'" << RESET << std::endl;
     DiamondTrap diamond2(diamond1);
-    diamond2.whoAmI(); // Should have same names
+    std::cout << "NEXT LINE Should have same names" << std::endl;
+    diamond2.whoAmI();
     diamond2.attack("copyTarget");
 
     std::cout << GREEN << "\n=== Test 8: Assignment Operator Test ===" << RESET << std::endl;
@@ -77,7 +78,8 @@ int main()
     diamond3.whoAmI();
     std::cout << YELLOW << "Assigning 'Hybrid' to 'Original'" << RESET << std::endl;
     diamond3 = diamond1;
-    diamond3.whoAmI(); // Should show new names
+    std::cout << "NEXT LINE Should show new names" << std::endl;
+    diamond3.whoAmI();
 
     std::cout << GREEN << "\n=== Test 9: Default Constructor ===" << RESET << std::endl;
     DiamondTrap defaultDiamond;
@@ -107,7 +109,8 @@ int main()
     std::cout << GREEN << "\n=== Test 12: Name Shadowing Verification ===" << RESET << std::endl;
     std::cout << YELLOW << "This verifies that DiamondTrap._name and ClapTrap._name are different" << RESET << std::endl;
     DiamondTrap shadowTest("Shadow");
-    shadowTest.whoAmI(); // Should show "Shadow" and "Shadow_clap_name"
+    std::cout << "NEXT LINE Should show 'Shadow' and 'Shadow_clap_name'" << std::endl;
+    shadowTest.whoAmI();
 
     if (DEBUG_MODE)
         std::cout << GREEN << "\n=== Final Destructors (main scope cleanup) ===" << RESET << std::endl;
