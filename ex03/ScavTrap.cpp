@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2026/01/05 20:08:44 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 19:43:23 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ ScavTrap::ScavTrap() : ClapTrap()
     this->_hitPoint = 100;
     this->_energyPoint = 50;
     this->_attackDmg = 20;
-    std::cout << CYAN << "ScavTrap default constructor called"
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "ScavTrap default constructor called"
+                  << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -27,28 +28,32 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->_hitPoint = 100;
     this->_energyPoint = 50;
     this->_attackDmg = 20;
-    std::cout << CYAN << "ScavTrap " << GREEN << this->_name
-              << CYAN << " parameterized constructor called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "ScavTrap " << GREEN << this->_name
+                  << CYAN << " parameterized constructor called" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
-    std::cout << CYAN << "ScavTrap " << GREEN << this->_name
-              << CYAN << " copy constructor called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "ScavTrap " << GREEN << this->_name
+                  << CYAN << " copy constructor called" << RESET << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 {
     ClapTrap::operator=(copy);
-    std::cout << CYAN << "ScavTrap " << GREEN << this->_name
-              << CYAN << " copy assignment operator called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "ScavTrap " << GREEN << this->_name
+                  << CYAN << " copy assignment operator called" << RESET << std::endl;
     return *this;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << RED << " Destructor called on ScavTrap "
-              << GREEN << this->_name << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << RED << " Destructor called on ScavTrap "
+                  << GREEN << this->_name << RESET << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)

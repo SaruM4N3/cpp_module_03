@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 23:50:00 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/23 00:19:46 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 19:34:59 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 int main()
 {
+    if (!DEBUG_MODE)
+        std::cout << std::endl
+                  << RED << "FOR A FULL TEST PLS USE: make debug"
+                  << std::endl;
+    
     std::cout << GREEN << "\n========== SCAVTRAP TESTS ==========" << RESET << std::endl;
     std::cout << GREEN << "\n=== Test 1: ScavTrap construct and actions ===" << RESET << std::endl;
     ScavTrap scav1("Guardian");
@@ -49,6 +54,7 @@ int main()
     deadScav.attack("ghost");
     deadScav.guardGate();
 
-    std::cout << GREEN << "\n=== Destructors ===" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << GREEN << "\n=== Destructors ===" << RESET << std::endl;
     return 0;
 }

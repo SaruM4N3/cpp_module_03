@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/23 00:09:23 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 19:38:49 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,28 @@
 ClapTrap::ClapTrap()
     : _name("DefaultClapTrap"), _hitPoint(10), _energyPoint(10), _attackDmg(0)
 {
-    std::cout << CYAN << "Default constructor called on "
-              << GREEN << this->_name
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "Default constructor called on "
+                  << GREEN << this->_name
+                  << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
     : _name(name), _hitPoint(10), _energyPoint(10), _attackDmg(0)
 {
-    std::cout << CYAN << "Paramaterized constructor called on "
-              << GREEN << this->_name
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "Paramaterized constructor called on "
+                  << GREEN << this->_name
+                  << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
     : _name(copy._name), _hitPoint(copy._hitPoint), _energyPoint(copy._energyPoint), _attackDmg(copy._attackDmg)
 {
-    std::cout << CYAN << "Copy constructor called on "
-              << GREEN << this->_name
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "Copy constructor called on "
+                  << GREEN << this->_name
+                  << RESET << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
@@ -46,17 +49,19 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
         this->_energyPoint = copy._energyPoint;
         this->_attackDmg = copy._attackDmg;
     }
-    std::cout << CYAN << "Copy assignment operator called on "
-              << GREEN << this->_name
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "Copy assignment operator called on "
+                  << GREEN << this->_name
+                  << RESET << std::endl;
     return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << RED << "Destructor called on "
-              << GREEN << this->_name
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << RED << "Destructor called on "
+                  << GREEN << this->_name
+                  << RESET << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -112,6 +117,8 @@ void ClapTrap::takeDamage(unsigned int amount)
               << YELLOW << " dmg! Current hitPoint: "
               << CYAN << this->_hitPoint
               << RESET << std::endl;
+    if (this->_hitPoint <= 0)
+        std::cout << RED << "RIP " << GREEN << this->_name << RESET << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

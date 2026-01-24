@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 23:50:00 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/23 00:23:16 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 19:40:42 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 int main()
 {
+    if (!DEBUG_MODE)
+        std::cout << std::endl
+                  << RED << "FOR A FULL TEST PLS USE: make debug"
+                  << std::endl;
+
     std::cout << GREEN << "\n========== FRAGTRAP TESTS ==========" << RESET << std::endl;
 
     std::cout << GREEN << "\n=== Test 1: FragTrap construct and actions ===" << RESET << std::endl;
@@ -56,6 +61,7 @@ int main()
     defaultFrag.highFivesGuys();
     defaultFrag.attack("test");
 
-    std::cout << GREEN << "\n=== Final Destructors ===" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << GREEN << "\n=== Final Destructors ===" << RESET << std::endl;
     return 0;
 }

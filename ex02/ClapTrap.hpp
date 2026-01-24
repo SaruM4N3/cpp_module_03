@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Claptrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:42 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/22 23:34:20 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 19:37:58 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 #include <string>
-
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
+#include "colors.hpp"
 
 class ClapTrap
 {
@@ -39,3 +34,4 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
+#endif

@@ -34,7 +34,7 @@ $(BUILDDIR)/%.o: %.cpp
 	@printf "$(RESET)"
 
 debug: fclean
-	@$(MAKE) all CC=g++
+	@$(MAKE) all CC=g++ CFLAGS="-DDEBUG_MODE=1"
 
 clean:
 	@printf "$(RED)🗑️  "

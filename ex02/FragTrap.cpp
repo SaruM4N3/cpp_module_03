@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2025/12/23 00:27:44 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 19:39:27 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ FragTrap::FragTrap() : ClapTrap()
     this->_hitPoint = 100;
     this->_energyPoint = 100;
     this->_attackDmg = 30;
-    std::cout << CYAN << "FragTrap default constructor called"
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "FragTrap default constructor called"
+                  << RESET << std::endl;
 };
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -27,28 +28,32 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     this->_hitPoint = 100;
     this->_energyPoint = 100;
     this->_attackDmg = 30;
-    std::cout << BLUE << "FragTrap " << GREEN << this->_name
-              << CYAN << " parameterized constructor called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << BLUE << "FragTrap " << GREEN << this->_name
+                  << CYAN << " parameterized constructor called" << RESET << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
-    std::cout << BLUE << "FragTrap " << GREEN << this->_name
-              << CYAN << " copy constructor called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << BLUE << "FragTrap " << GREEN << this->_name
+                  << CYAN << " copy constructor called" << RESET << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &copy)
 {
     ClapTrap::operator=(copy);
-    std::cout << BLUE << "FragTrap " << GREEN << this->_name
-              << CYAN << " copy assignment operator called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << BLUE << "FragTrap " << GREEN << this->_name
+                  << CYAN << " copy assignment operator called" << RESET << std::endl;
     return *this;
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << RED << "Destructor called on " << BLUE << "FragTrap "
-              << GREEN << this->_name << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << RED << "Destructor called on " << BLUE << "FragTrap "
+                  << GREEN << this->_name << RESET << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)

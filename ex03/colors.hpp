@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 01:14:42 by zsonie            #+#    #+#             */
-/*   Updated: 2026/01/24 19:42:56 by zsonie           ###   ########lyon.fr   */
+/*   Created: 2026/01/23 16:57:55 by zsonie            #+#    #+#             */
+/*   Updated: 2026/01/24 19:35:48 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-#include "ClapTrap.hpp"
+#ifndef DEBUG_MODE
+# define DEBUG_MODE 0
+#endif
 
-class ScavTrap : virtual public ClapTrap
-{
-public:
-    ScavTrap();
-    ScavTrap(std::string name);
-    ScavTrap(const ScavTrap &copy);
-    ScavTrap& operator=(const ScavTrap &copy);
-    ~ScavTrap();
-    
-    void attack(const std::string &target);
-    void guardGate();
-    unsigned int getScavEnergyPoints() const;
-};
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN "\033[36m"
+
 #endif

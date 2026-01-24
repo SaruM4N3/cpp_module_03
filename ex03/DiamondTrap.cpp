@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 01:14:32 by zsonie            #+#    #+#             */
-/*   Updated: 2026/01/06 18:33:07 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 19:44:03 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name"), FragTrap(), ScavTrap
     this->_hitPoint = 100;
     this->_energyPoint = 50;
     this->_attackDmg = 30;
-    std::cout << CYAN << "DiamondTrap default constructor called"
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "DiamondTrap default constructor called"
+                  << RESET << std::endl;
 };
 
 DiamondTrap::DiamondTrap(std::string const &name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _name(name)
@@ -27,14 +28,16 @@ DiamondTrap::DiamondTrap(std::string const &name) : ClapTrap(name + "_clap_name"
     this->_hitPoint = 100;
     this->_energyPoint = 50;
     this->_attackDmg = 30;
-    std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
-              << CYAN << " parameterized constructor called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
+                  << CYAN << " parameterized constructor called" << RESET << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(copy), FragTrap(copy), ScavTrap(copy), _name(copy._name)
 {
-    std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
-              << CYAN << " copy constructor called" << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "DiamondTrap " << GREEN << this->_name
+                  << CYAN << " copy constructor called" << RESET << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
@@ -44,15 +47,17 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
         ClapTrap::operator=(other);
         this->_name = other._name;
     }
-    std::cout << CYAN << "DiamondTrap assignment operator called"
-              << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << CYAN << "DiamondTrap assignment operator called"
+                  << RESET << std::endl;
     return *this;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << RED << " Destructor called on DiamondTrap "
-              << GREEN << this->_name << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << RED << " Destructor called on DiamondTrap "
+                  << GREEN << this->_name << RESET << std::endl;
 }
 
 void DiamondTrap::whoAmI()
